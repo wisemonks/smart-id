@@ -12,7 +12,7 @@ module SmartId::Utils
       begin
         @certificate = certificate.cert
       rescue Exception
-        debugger
+        # debugger
       end
     end
 
