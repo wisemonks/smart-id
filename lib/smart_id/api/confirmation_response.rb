@@ -2,12 +2,18 @@ module SmartId::Api
   class ConfirmationResponse
     RUNNING_STATE = "RUNNING"
     COMPLETED_STATE = "COMPLETE"
+    USER_REFUSED = "USER_REFUSED"
+    TIMEOUT = "TIMEOUT"
 
     attr_reader :body
     
     def initialize(response_body, hashed_data)
       @body = response_body
-      validate!(hashed_data)
+
+      raise SmartId::UserRefused if end_result == USER_REFUSED
+      raise SmartId::Timeout if end_result == TIMEOUT
+
+      validate!(hashed_data) unless confirmation_running?
     end
 
     def confirmation_running?

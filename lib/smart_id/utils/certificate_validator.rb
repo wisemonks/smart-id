@@ -28,9 +28,9 @@ module SmartId::Utils
     end
 
     def validate_certificate!
-      unless certificate_valid?
-        raise SmartId::InvalidResponseCertificate
-      end
+      return false if @certificate.nil?
+
+      raise SmartId::InvalidResponseCertificate unless certificate_valid?
     end
 
     def cert_chain

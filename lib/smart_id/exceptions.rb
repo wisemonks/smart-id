@@ -7,6 +7,8 @@ module SmartId
   class UserNotFoundError < Exception; end
   class OutdatedApiError < Exception; end
   class SystemUnderMaintenanceError < Exception; end
+  class UserRefused < Exception; end
+  class Timeout < Exception; end
 
   class ConnectionError < Exception;
     attr_reader :original_error
