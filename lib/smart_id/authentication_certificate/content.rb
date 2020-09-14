@@ -33,7 +33,7 @@ module SmartId
 
       def structured_raw_content
         return @structured_raw_content if @structured_raw_content
-        @structured_raw_content = @raw_content.split("/").each_with_object({}) do |c, result|
+        @structured_raw_content = @raw_content.split(/(?<!\\)\,+/).each_with_object({}) do |c, result|
           if c.include?("=")
             key, val = c.split("=")
             result[key] = val
