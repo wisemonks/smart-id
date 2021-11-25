@@ -36,6 +36,9 @@ module SmartId::Utils
     def cert_chain
       [
         OpenSSL::X509::Certificate.new(
+          File.read(File.dirname(__FILE__)+"/../../../trusted_certs/sid_demo_sk_ee_2021_PEM.crt")
+        ),
+        OpenSSL::X509::Certificate.new(
           File.read(File.dirname(__FILE__)+"/../../../trusted_certs/EID-SK_2016.pem.crt")
         ),
         OpenSSL::X509::Certificate.new(
