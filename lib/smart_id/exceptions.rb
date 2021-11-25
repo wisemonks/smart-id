@@ -9,6 +9,11 @@ module SmartId
   class SystemUnderMaintenanceError < Exception; end
   class UserRefused < Exception; end
   class Timeout < Exception; end
+  class InvalidPermissionsError < Exception
+    def message
+      "Relying Party has no permission to issue the request."
+    end
+  end
 
   class ConnectionError < Exception;
     attr_reader :original_error
