@@ -69,7 +69,7 @@ module SmartId
 
   class IncorrectAccountLevelError < Exception
     def message
-      "Vartotojas turi turėti aukštesnį apsaugos lygį negu BASIC."
+      "Atsiprašome, jūsų Smart ID paskyros lygis per žemas registracijai sukurti. Prisijungti galite tik naudodamiesi Smart ID kvalifikuotu parašu."
     end
   end
 end
