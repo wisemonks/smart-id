@@ -69,7 +69,7 @@ module SmartId
 
   class IncorrectAccountLevelError < Exception
     def message
-      "Naudojate nekvalifikuotą SmartID parašą, todėl patvirtinimas negalimas. Prašome atnaujinti SmartID parašą į kvalifikuotą."
+      "Prašome patikrinti ar naudojatės kvalifikuotu Smart-ID parašu"
     end
   end
 end
