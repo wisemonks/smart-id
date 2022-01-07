@@ -26,7 +26,7 @@ module SmartId
 
   class UserNotFoundError < Exception
     def message
-      "Vartotojas nerastas."
+      "Dėmesio! Patikrink ar teisingai nurodytas asmens kodas."
     end
   end
 
@@ -69,7 +69,7 @@ module SmartId
 
   class IncorrectAccountLevelError < Exception
     def message
-      "Atsiprašome, jūsų Smart ID paskyros lygis per žemas registracijai sukurti. Prisijungti galite tik naudodamiesi Smart ID kvalifikuotu parašu."
+      "Naudojate nekvalifikuotą SmartID parašą, todėl patvirtinimas negalimas. Prašome atnaujinti SmartID parašą į kvalifikuotą."
     end
   end
 end
