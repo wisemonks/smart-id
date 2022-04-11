@@ -10,6 +10,9 @@ require "smart_id/api/authentication/document"
 require "smart_id/api/authentication/confirmation_poller"
 require "smart_id/authentication_certificate/certificate"
 require "smart_id/authentication_certificate/content"
+require "smart_id/api/signing/identity_number"
+require "smart_id/api/signing/document"
+require "smart_id/api/signing/confirmation_poller"
 
 module SmartId
     @@environment = "DEMO" # possible options are demo and production
