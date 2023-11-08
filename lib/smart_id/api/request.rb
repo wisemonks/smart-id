@@ -2,8 +2,8 @@ require 'logger'
 require 'date'
 module SmartId::Api
   class Request
-    DEMO_BASE_URL = "https://sid.demo.sk.ee/smart-id-rp/v1/"
-    PRODUCTION_BASE_URL = "https://rp-api.smart-id.com/v1/"
+    DEMO_BASE_URL = "https://sid.demo.sk.ee/smart-id-rp/v2/"
+    PRODUCTION_BASE_URL = "https://rp-api.smart-id.com/v2/"
 
     def initialize(method, uri, params)
       @method = method

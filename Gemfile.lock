@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    smart_id (0.1.0)
+    smart_id (0.1.6)
       rest-client (~> 2.0)
 
 GEM
@@ -52,4 +52,4 @@ DEPENDENCIES
   smart_id!
 
 BUNDLED WITH
-   2.0.2
+   2.4.18

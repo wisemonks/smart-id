@@ -20,9 +20,19 @@ module SmartId
     @@relying_party_name = nil
     @@default_certificate_level = "ADVANCED" # possible values are "ADVANCED", "QUALIFIED" 
     @@poller_timeout_seconds = 10
+    @@allowed_interactions_order = [
+      {
+        type: 'displayTextAndPIN',
+        displayText60: 'Authentication'
+      }
+    ]
 
   def self.configure(&block)
     yield(self)
+  end
+
+  def self.allowed_interactions_order=(value)
+    @@allowed_interactions_order = value
   end
 
   def self.relying_party_uuid=(value)

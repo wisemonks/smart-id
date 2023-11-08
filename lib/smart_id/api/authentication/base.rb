@@ -33,7 +33,8 @@ module SmartId::Api
           relyingPartyName: SmartId.relying_party_name,
           certificateLevel: @certificate_level || SmartId.default_certificate_level,
           hash: authentication_hash.calculate_base64_digest,
-          hashType: "SHA256"
+          hashType: 'SHA256',
+          allowedInteractionsOrder: @allowed_interactions_order || SmartId.default_allowed_interactions_order
         }
 
         if @display_text
