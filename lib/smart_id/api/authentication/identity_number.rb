@@ -8,6 +8,7 @@ module SmartId::Api
 
       # @param country: 2 character ISO 3166-1 alpha-2 format(for example EE, LT, LV, KZ)
       # @param identity_number: national identity number of the individuals
+      # @param allowed_interactions_order: customized order of allowed smart-id user interactions
       def initialize(**opts)
         @country = opts[:country].upcase
         @identity_number = opts[:identity_number]

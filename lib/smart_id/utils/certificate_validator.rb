@@ -49,7 +49,7 @@ module SmartId::Utils
 
     def validate_signature!
       public_key = @certificate.public_key
-      
+
       unless public_key.verify(OpenSSL::Digest::SHA256.new, Base64.decode64(@signature), @hash_data)
         raise SmartId::InvalidResponseSignature
       end
