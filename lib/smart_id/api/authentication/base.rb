@@ -1,7 +1,7 @@
-require "rest-client"
-require "smart_id/exceptions"
-require "smart_id/utils/authentication_hash"
-require "json"
+require 'json'
+require 'rest-client'
+require './smart_id/exceptions'
+require './smart_id/utils/authentication_hash'
 
 module SmartId::Api
   module Authentication
@@ -18,7 +18,6 @@ module SmartId::Api
         @certificate_level = opts[:certificate_level]
         @multiple_choice = opts[:multiple_choice]
       end
-
 
       def call
         response = SmartId::Api::Request.execute(method: :post, uri: api_uri, params: request_params)
@@ -37,13 +36,9 @@ module SmartId::Api
           allowedInteractionsOrder: @allowed_interactions_order || SmartId.default_allowed_interactions_order
         }
 
-        if @display_text
-          params.merge!(displayText: @display_text)
-        end
+        params.merge!(displayText: @display_text) if @display_text
 
-        if @multiple_choice
-          params.merge!(requestProperties: { vcChoice: @multiple_choice })
-        end
+        params.merge!(requestProperties: { vcChoice: @multiple_choice }) if @multiple_choice
 
         params
       end

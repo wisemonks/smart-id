@@ -1,9 +1,9 @@
-require "smart_id/api/signing/base"
+require './smart_id/api/signing/base'
 
 module SmartId::Api
   module Signing
     class Document < Base
-      BASE_URI = "signature/document"
+      BASE_URI = 'signature/document'
 
       def initialize(**opts)
         @document_number = opts[:document_number]

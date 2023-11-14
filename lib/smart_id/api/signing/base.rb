@@ -1,7 +1,7 @@
-require "rest-client"
-require "smart_id/exceptions"
-require "smart_id/utils/authentication_hash"
-require "json"
+require 'json'
+require 'rest-client'
+require './smart_id/exceptions'
+require './smart_id/utils/authentication_hash'
 
 module SmartId::Api
   module Signing
@@ -19,7 +19,6 @@ module SmartId::Api
         @multiple_choice = opts[:multiple_choice]
       end
 
-
       def call
         response = SmartId::Api::Request.execute(method: :post, uri: api_uri, params: request_params)
         SmartId::Api::Response.new(JSON.parse(response.body), authentication_hash)
@@ -33,16 +32,12 @@ module SmartId::Api
           relyingPartyName: SmartId.relying_party_name,
           certificateLevel: @certificate_level || SmartId.default_certificate_level,
           hash: authentication_hash.calculate_base64_digest,
-          hashType: "SHA256"
+          hashType: 'SHA256'
         }
 
-        if @display_text
-          params.merge!(displayText: @display_text)
-        end
+        params.merge!(displayText: @display_text) if @display_text
 
-        if @multiple_choice
-          params.merge!(requestProperties: { vcChoice: @multiple_choice })
-        end
+        params.merge!(requestProperties: { vcChoice: @multiple_choice }) if @multiple_choice
 
         params
       end

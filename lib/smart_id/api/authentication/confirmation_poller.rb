@@ -1,11 +1,10 @@
 module SmartId::Api
   module Authentication
     class ConfirmationPoller
-      BASE_URI = "session/"
+      BASE_URI = 'session/'
 
       def self.confirm(session_id:, authentication_hash:, poll: true)
         new(session_id, authentication_hash, poll).call
-
       end
 
       def initialize(session_id, authentication_hash, poll)
@@ -19,7 +18,6 @@ module SmartId::Api
         uri = BASE_URI + @session_id
 
         raw_response = SmartId::Api::Request.execute(method: :get, uri: uri, params: params)
-        
         response = SmartId::Api::ConfirmationResponse.new(
           JSON.parse(raw_response.body),
           @authentication_hash.hash_data
