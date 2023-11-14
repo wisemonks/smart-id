@@ -29,7 +29,6 @@ module SmartId::Api
       when 580
         raise SmartId::SystemUnderMaintenanceError
       else
-        p 'error', e
         raise SmartId::ConnectionError, e
       end
     rescue RestClient::SSLCertificateNotVerified
@@ -43,7 +42,6 @@ module SmartId::Api
                 get_request_attrs
               end
 
-      p 'attries', attrs
       RestClient::Request.execute(**attrs)
     end
 
