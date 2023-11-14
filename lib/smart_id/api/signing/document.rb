@@ -1,4 +1,4 @@
-require './smart_id/api/signing/base'
+require_relative 'base'
 
 module SmartId::Api
   module Signing

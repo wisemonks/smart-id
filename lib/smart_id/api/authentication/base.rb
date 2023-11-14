@@ -1,7 +1,7 @@
 require 'json'
 require 'rest-client'
-require './smart_id/exceptions'
-require './smart_id/utils/authentication_hash'
+require_relative '../../exceptions'
+require_relative '../../utils/authentication_hash'
 
 module SmartId::Api
   module Authentication

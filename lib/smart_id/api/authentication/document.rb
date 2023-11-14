@@ -1,4 +1,4 @@
-require './smart_id/api/authentication/base'
+require_relative 'base'
 
 module SmartId::Api
   module Authentication

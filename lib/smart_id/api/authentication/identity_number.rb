@@ -1,5 +1,5 @@
-require './smart_id/api/authentication/base'
-require './smart_id/exceptions'
+require_relative 'base'
+require_relative '../../exceptions'
 
 module SmartId::Api
   module Authentication
