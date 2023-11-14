@@ -75,36 +75,3 @@ module SmartId
     @@environment
   end
 end
-
-SmartId.configure do |config|
-  config.relying_party_uuid = '00000000-0000-0000-0000-000000000000'
-  config.relying_party_name = 'DEMO'
-  config.default_certificate_level = 'QUALIFIED'
-  config.poller_timeout_seconds = 10
-  config.environment = 'DEMO'
-end
-
-
-# User enables Smart ID authentication or logs in with Smart ID
-authentication_hash = SmartId::Utils::AuthenticationHash.new
-auth_response = SmartId::Api::Authentication::IdentityNumber.authenticate(
-  country: 'EE',
-  identity_number: '50001029996',
-  authentication_hash: authentication_hash,
-  allowed_interactions_order: [
-    {
-      type: 'displayTextAndPIN',
-      displayText60: 'Agrorodeo Smart ID autentifikacija'
-    }
-  ]
-)
-
-# Server awaits for user confirmation
-authentication_hash_confirm = SmartId::Utils::AuthenticationHash.new(authentication_hash.hash_data)
-confirmation_response = SmartId::Api::Authentication::ConfirmationPoller.confirm(
-  session_id: auth_response.session_id,
-  authentication_hash: authentication_hash_confirm,
-  poll: true
-)
-p authentication_hash_confirm
-p confirmation_response
